@@ -1,0 +1,186 @@
+/* Form Container */
+.container {
+  background-color: #f5f5dc; /* Cream background unified with body */
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+/* Form Card */
+.card {
+  background-color: #ffffff; /* White background */
+  border: 2px solid #16213e; /* Dark blue border */
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  flex: 1;
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Form Header */
+.card h2 {
+  background-color: #f0e6d2; /* Cream color at top */
+  color: #16213e; /* Dark blue text */
+  padding: 1rem 2rem;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  margin: 0;
+  font-weight: 700;
+  font-size: 1.75rem;
+}
+
+/* Form Inputs */
+form {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  padding: 1rem 2rem 2rem 2rem;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"],
+form input[type="number"],
+form input[type="tel"],
+form input[type="url"],
+form textarea,
+form select,
+.aligned-input,
+.form-control {
+  flex: 1 1 45%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  color: #16213e; /* Dark blue text */
+  background-color: #ffffff; /* White background */
+  border: 2px solid #16213e; /* Dark blue border */
+  border-radius: 0.5rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  min-width: 200px;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  resize: vertical;
+}
+
+form input:focus,
+form textarea:focus,
+form select:focus,
+.aligned-input:focus,
+.form-control:focus {
+  border-color: #1a1a2e; /* Slightly darker blue on focus */
+  box-shadow: 0 0 8px rgba(22, 33, 62, 0.3);
+  outline: none;
+}
+
+/* Checkbox and Radio Buttons */
+form input[type="checkbox"],
+form input[type="radio"] {
+  margin-right: 0.5rem;
+  cursor: pointer;
+  accent-color: #16213e;
+}
+
+/* Labels */
+form label {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  color: #16213e;
+  display: block;
+  font-size: 1rem;
+}
+
+/* Form Field Container */
+.form-field {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 45%;
+  margin-bottom: 1rem;
+}
+
+/* Fieldset and Legend */
+form fieldset {
+  border: 2px solid #16213e;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+form legend {
+  font-weight: 700;
+  color: #16213e;
+  padding: 0 0.5rem;
+  font-size: 1.1rem;
+}
+
+/* Submit Button */
+form button[type="submit"],
+.btn-primary {
+  background-color: #16213e; /* Dark blue background */
+  color: #f0e6d2; /* Cream text */
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 0.75rem 2rem;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  align-self: flex-start;
+  margin-top: 1rem;
+}
+
+form button[type="submit"]:hover,
+.btn-primary:hover {
+  background-color: #1a1a2e; /* Slightly darker blue */
+  transform: translateY(-2px);
+}
+
+/* Links */
+a.btn-link {
+  color: #16213e; /* Dark blue */
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a.btn-link:hover {
+  text-decoration: underline;
+}
+
+/* Error Messages */
+.alert-danger {
+  background-color: #f8d7da; /* Light red background */
+  color: #721c24; /* Dark red text */
+  border: 1px solid #f5c6cb;
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+}
+
+/* Form Container Variants */
+.student-form-container,
+.announcement-form-container,
+.testimonial-form-container {
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 1rem;
+  background-color: #f5f5dc; /* Cream background */
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Headings inside form containers */
+.student-form-container h1,
+.announcement-form-container h1,
+.testimonial-form-container h1 {
+  color: #16213e;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}

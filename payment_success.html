@@ -1,0 +1,12 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block title %}Payment Success - Attariq Academy{% endblock title %}
+
+{% block content %}
+<div class="payment-success-container animate-on-load" style="max-width: 600px; margin: 2rem auto; padding: 1rem; text-align: center;">
+  <h1 class="animate-on-load">Thank You for Your Payment!</h1>
+  <p class="animate-on-load">Your payment has been successfully processed. We appreciate your promptness.</p>
+  <a href="{% url 'home' %}" class="btn btn-primary animate-on-load">Return to Home</a>
+</div>
+{% endblock content %}

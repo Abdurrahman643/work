@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block title %}Submit Testimonial - Attariq Academy{% endblock title %}
+
+{% block content %}
+<div class="testimonial-form-container animate-on-load" style="max-width: 700px; margin: 2rem auto; padding: 1rem;">
+  <h1 class="animate-on-load">Submit Your Testimonial</h1>
+  <form method="post" novalidate>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary animate-on-load">Submit</button>
+  </form>
+</div>
+{% endblock content %}

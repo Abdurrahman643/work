@@ -1,0 +1,58 @@
+{% extends 'layout.html' %}
+
+{% block title %}About Us - Attariq Academy{% endblock title %}
+
+{% block content %}
+<div class="about-container" style="max-width: 1200px; margin: 0 auto; padding: 2rem;">
+    <h1 style="font-size: 2.5rem; font-weight: bold; color: #00008B; text-align: center; margin-bottom: 2rem;">About Attariq Academy</h1>
+
+    <section style="margin-bottom: 2rem;">
+        <h2 style="font-size: 1.8rem; font-weight: bold; color: #333;">Our Mission</h2>
+        <p style="font-size: 1rem; line-height: 1.6; color: #555;">
+            At Attariq Academy, our mission is to provide a holistic education that combines academic excellence with moral and spiritual growth. We aim to nurture well-rounded individuals who are prepared to excel in all aspects of life.
+        </p>
+    </section>
+
+    <section style="margin-bottom: 2rem;">
+        <h2 style="font-size: 1.8rem; font-weight: bold; color: #333;">Our Vision</h2>
+        <p style="font-size: 1rem; line-height: 1.6; color: #555;">
+            Our vision is to be a leading institution that inspires and empowers students to achieve their full potential while upholding the values of integrity, respect, and compassion.
+        </p>
+    </section>
+
+    <section style="margin-bottom: 2rem;">
+        <h2 style="font-size: 1.8rem; font-weight: bold; color: #333;">Our Values</h2>
+        <ul style="list-style: disc; padding-left: 1.5rem; font-size: 1rem; line-height: 1.6; color: #555;">
+            <li>Excellence in education</li>
+            <li>Faith and spirituality</li>
+            <li>Integrity and honesty</li>
+            <li>Respect for diversity</li>
+            <li>Community and service</li>
+        </ul>
+    </section>
+
+    <section style="margin-bottom: 2rem;">
+        <h2 style="font-size: 1.8rem; font-weight: bold; color: #333;">Contact Us</h2>
+        <p style="font-size: 1rem; line-height: 1.6; color: #555;">
+            For more information, feel free to reach out to us at:
+        </p>
+        <ul style="list-style: none; padding: 0; font-size: 1rem; line-height: 1.6; color: #555;">
+            <li><strong>Email:</strong> info@attariqacademy.com</li>
+            <li><strong>Phone:</strong> +234 808 933 2051</li>
+            <li><strong>Address:</strong> 123 Attariq Street, Abuja, Nigeria</li>
+        </ul>
+    </section>
+
+    <div class="related-links">
+        <h3>Explore More</h3>
+        <ul>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'admission' %}">Admission</a></li>
+            <li><a href="{% url 'student_form' %}">Student Form</a></li>
+            <li><a href="{% url 'enrollment_form' %}">Enrollment Form</a></li>
+            <li><a href="{% url 'payment' %}">Payment</a></li>
+            <li><a href="{% url 'announcement' %}">Announcements</a></li>
+        </ul>
+    </div>
+</div>
+{% endblock content %}

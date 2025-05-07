@@ -1,0 +1,40 @@
+/* Styles for announcements section */
+#announcements-section {
+  border: 1px solid #16213e;
+  background-color: #e9f5ff; /* keep light background */
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 8px rgba(22, 33, 62, 0.3);
+  font-family: Arial, sans-serif;
+  color: #16213e;
+}
+
+#announcements-section h2 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  color: #16213e;
+}
+
+#announcements-list {
+  list-style-type: none;
+  padding-left: 0;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+#announcements-list li {
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #b8daff; /* keep light blue border */
+}
+
+#announcements-list li strong {
+  font-weight: bold;
+  font-size: 1.1em;
+  color: #16213e;
+}
+
+#announcements-list li:last-child {
+  border-bottom: none;
+}

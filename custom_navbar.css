@@ -1,0 +1,65 @@
+/* Additional navbar styles for full dark blue theme */
+
+/* Navbar background and base styles */
+.navbar {
+  background-color: #00008B !important; /* Dark blue background */
+}
+
+/* Navbar background dark blue class */
+.bg-dark-blue {
+  background-color: #00008B !important;
+}
+
+/* Navbar brand and links */
+.navbar-brand,
+.navbar-nav .nav-link {
+  color: #f0e6d2 !important; /* Cream text color */
+}
+
+/* Navbar link hover */
+.navbar-nav .nav-link:hover {
+  color: #c9b89a !important; /* Light gold on hover */
+}
+
+/* Dropdown menu background and text */
+.dropdown-menu,
+.dropdown-menu.dropdown-menu-end {
+  background-color: #00008B !important; /* Dark blue background */
+}
+
+.dropdown-menu .dropdown-item {
+  color: #f0e6d2 !important; /* Cream text color */
+}
+
+.dropdown-menu .dropdown-item:hover,
+.dropdown-menu .dropdown-item:focus {
+  color: #c9b89a !important; /* Light gold on hover/focus */
+  background-color: transparent !important; /* Keep background transparent on hover */
+}
+
+/* Navbar toggler button background */
+.navbar-toggler {
+  background-color: #00008B !important;
+  border-color: #00008B !important;
+}
+
+/* Navbar toggler icon color */
+.navbar-dark .navbar-toggler-icon {
+  filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg) brightness(103%) contrast(103%);
+}
+
+/* Blue color for Home, About, Admission nav links */
+.nav-link.blue-link {
+  color: #0000FF !important; /* Blue color */
+}
+
+.nav-link.blue-link:hover,
+.nav-link.blue-link:focus {
+  color: #0000CC !important; /* Darker blue on hover/focus */
+}
+
+.navbar-nav .nav-link.extreme-darkblue-bold,
+.navbar-nav .nav-link.extreme-darkblue-bold.active {
+  color: #000080 !important; /* More visible dark blue */
+  font-weight: bold !important;
+}

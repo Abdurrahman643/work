@@ -1,0 +1,212 @@
+/* Centralized Container */
+.centralized-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+}
+
+/* Admission Section */
+.admission-section {
+    display: flex;
+    flex-wrap: nowrap; /* prevent wrapping to keep side by side */
+    gap: 2rem;
+    justify-content: flex-start; /* align items to start */
+    align-items: flex-start;
+}
+
+/* Admission Text */
+.admission-text {
+    flex: 1 1 60%; /* allow to take 60% width */
+    max-width: 60%;
+    text-align: left;
+}
+
+.admission-text h2 {
+    font-size: 2rem;
+    color: #16213e;
+    margin-bottom: 1rem;
+}
+
+.admission-text p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 1.5rem;
+}
+
+.admission-path h3 {
+    font-size: 1.5rem;
+    color: #16213e;
+    margin-bottom: 0.5rem;
+}
+
+.admission-path ul {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+}
+
+.admission-path ul li {
+    margin-bottom: 0.75rem;
+    font-size: 1rem;
+    color: #333;
+}
+
+/* Dashboard */
+.admission-dashboard {
+    flex: 1 1 35%; /* allow to take 35% width */
+    max-width: 35%;
+    background-color: #f9f9f9;
+    border-radius: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+}
+
+.dashboard-container h3 {
+    font-size: 1.5rem;
+    color: #16213e;
+    margin-bottom: 1rem;
+}
+
+.dashboard-summary p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 0.5rem;
+}
+
+.table-responsive {
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.table thead {
+    background-color: #16213e;
+    color: #f0e6d2;
+}
+
+.table tbody tr:hover {
+    background-color: #f0e6d2;
+    color: #16213e;
+}
+
+/* Search Input */
+#studentSearch {
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    width: 100%;
+}
+
+/* Centralized Container */
+.centralized-container {
+    font-size: 1.2rem; /* Increase the base font size */
+    line-height: 1.8; /* Improve readability */
+}
+
+/* Admission Text */
+.admission-text h2 {
+    font-size: 2.5rem; /* Larger heading for emphasis */
+    color: #16213e;
+    margin-bottom: 1.5rem;
+}
+
+.admission-text p {
+    font-size: 1.3rem; /* Larger paragraph text */
+    color: #555;
+    margin-bottom: 2rem;
+}
+
+/* Admission Path */
+.admission-path h3 {
+    font-size: 1.8rem; /* Larger subheading */
+    color: #16213e;
+    margin-bottom: 1rem;
+}
+
+.admission-path ul li {
+    font-size: 1.2rem; /* Larger list items */
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+/* Dashboard Table */
+.table {
+    font-size: 1.1rem; /* Larger table text */
+}
+
+.table thead th {
+    font-size: 1.2rem; /* Larger table headers */
+}
+
+.table tbody td {
+    font-size: 1.1rem; /* Larger table cells */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .centralized-container {
+        flex-direction: column !important;
+        padding: 1rem !important;
+    }
+
+    .admission-section,
+    .admission-dashboard {
+        flex: 1 1 100% !important;
+        max-width: 100% !important;
+        margin-bottom: 2rem;
+    }
+
+    .admission-text h2 {
+        font-size: 1.8rem !important;
+    }
+
+    .admission-path h3 {
+        font-size: 1.3rem !important;
+    }
+
+    .programs-list li {
+        font-size: 1rem !important;
+    }
+
+    .dashboard-container h3 {
+        font-size: 1.3rem !important;
+    }
+
+    .dashboard-summary p,
+    .table tbody td,
+    .table thead th {
+        font-size: 1rem !important;
+    }
+
+    #studentSearch {
+        font-size: 1rem !important;
+        padding: 0.5rem !important;
+    }
+
+    .table-responsive {
+        max-height: none !important;
+        overflow-y: visible !important;
+    }
+}
+
+/* New styles for home page hero logo */
+.hero-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.hero-logo {
+    margin-bottom: 1rem;
+}
+
+
+.hero-logo img.home-logo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+}

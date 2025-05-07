@@ -1,0 +1,63 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block title %}Home - Attariq Academy{% endblock title %}
+
+{% block content %}
+<div class="home-container">
+  <!-- Hero Section -->
+  <div class="hero-section">
+    <div class="hero-logo">
+      <img src="{% static 'images/attariq.png' %}" alt="Attariq Logo" class="home-logo" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover;">
+    </div>
+    <div class="hero-text">
+      <h1>welcome to attariq the path to success</h1>
+      <p></p>
+      <a href="{% url 'student_form' %}" class="btn btn-primary btn-lg">Apply Now</a>
+    </div>
+  </div>
+
+  <!-- Features Section -->
+  <section class="features-section">
+    <h2>Why Choose Us?</h2>
+    <ul>
+      <li>Comprehensive Islamic and academic education</li>
+      <li>Experienced and caring faculty</li>
+      <li>State-of-the-art facilities</li>
+      <li>Strong community and values</li>
+    </ul>
+  </section>
+
+  <!-- News Section -->
+  <section class="news-section">
+    <h2>Latest News</h2>
+    <p>Stay tuned for upcoming events and announcements.</p>
+  </section>
+
+  <!-- Announcement Section -->
+  <section class="announcement-section">
+    <h2>Announcement</h2>
+    {% if current_announcement %}
+      <div style="border: 1px solid #ccc; padding: 10px; background-color: #f9f9f9; margin-bottom: 20px;">
+        <strong>{{ current_announcement.title }}</strong> - {{ current_announcement.created_at|date:"M d, Y H:i" }}<br>
+        {{ current_announcement.content }}
+      </div>
+    {% else %}
+      <p>No announcements available.</p>
+    {% endif %}
+  </section>
+
+  <!-- Quick Links Section -->
+  <div class="related-links">
+    <h3>Quick Links</h3>
+    <ul>
+        <li><a href="{% url 'about' %}">About Us</a></li>
+        <li><a href="{% url 'admission' %}">Admission</a></li>
+        <li><a href="{% url 'student_form' %}">Student Form</a></li>
+        <li><a href="{% url 'enrollment_form' %}">Enrollment Form</a></li>
+        <li><a href="{% url 'payment' %}">Payment</a></li>
+        <li><a href="{% url 'announcement' %}">Announcements</a></li>
+    </ul>
+  </div>
+</div>
+{% endblock content %}

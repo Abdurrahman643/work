@@ -1,0 +1,135 @@
+/* Modernized About Page Styles */
+
+/* Container Styling */
+.about-container {
+  color: #1a202c; /* Dark gray for text */
+  max-width: 1000px;
+  margin: 3rem auto;
+  padding: 2.5rem 3rem;
+  background: linear-gradient(135deg, #f7fafc, #edf2f7); /* Light gradient */
+  border-radius: 1.5rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  font-family: 'Poppins', Arial, sans-serif;
+}
+
+/* Headings */
+.about-container h1,
+.about-container h2 {
+  color: #2b6cb0; /* Blue for headings */
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  font-family: 'Poppins', Arial, sans-serif;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.about-container h1 {
+  font-size: 3.5rem;
+}
+
+.about-container h2 {
+  font-size: 2.5rem;
+  margin-top: 2rem;
+}
+
+/* Paragraphs */
+.about-container p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+  color: #4a5568; /* Medium gray for text */
+  text-align: justify;
+}
+
+/* Lists */
+.about-container ul {
+  list-style-type: disc;
+  padding-left: 2rem;
+  margin-bottom: 2rem;
+}
+
+.about-container ul li {
+  margin-bottom: 1rem;
+  font-size: 1.15rem;
+  color: #2d3748; /* Darker gray for list items */
+}
+
+/* Testimonials */
+.testimonial {
+  font-size: 1.3rem;
+  font-style: italic;
+  color: #2c5282; /* Blue for testimonials */
+  border-left: 6px solid #2b6cb0;
+  padding-left: 1.5rem;
+  margin: 2rem 0;
+  background-color: #ebf8ff; /* Light blue background */
+  border-radius: 0.5rem;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial-footer {
+  font-size: 1rem;
+  color: #4a5568;
+  text-align: right;
+  margin-top: 0.5rem;
+  font-weight: 600;
+}
+
+/* Call to Action Button */
+.about-container .cta-button {
+  display: inline-block;
+  background-color: #2b6cb0; /* Blue button */
+  border: none;
+  color: #ffffff;
+  font-weight: 700;
+  padding: 1rem 2.5rem;
+  border-radius: 0.75rem;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  letter-spacing: 1.5px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 6px 15px rgba(43, 108, 176, 0.3);
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+}
+
+.about-container .cta-button:hover {
+  background-color: #2c5282; /* Darker blue on hover */
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(44, 82, 130, 0.5);
+}
+
+/* Image Styling */
+.about-container img {
+  max-width: 100%;
+  border-radius: 1rem;
+  margin: 2rem 0;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .about-container {
+    padding: 2rem 1.5rem;
+  }
+
+  .about-container h1 {
+    font-size: 2.5rem;
+  }
+
+  .about-container h2 {
+    font-size: 2rem;
+  }
+
+  .about-container p {
+    font-size: 1rem;
+  }
+
+  .about-container .cta-button {
+    font-size: 1rem;
+    padding: 0.8rem 2rem;
+  }
+}

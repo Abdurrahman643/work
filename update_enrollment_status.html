@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+
+{% block title %}Update Enrollment Status{% endblock title %}
+
+{% block content %}
+  <h2>Update Enrollment Status for {{ enrollment.student.full_name }}</h2>
+<form method="post" class="form-container">
+    {% csrf_token %}
+    <label for="status">Select new status:</label>
+    <select name="status" id="status">
+      {% for status in statuses %}
+        <option value="{{ status }}" {% if status == enrollment.status %}selected{% endif %}>{{ status }}</option>
+      {% endfor %}
+    </select>
+    <button type="submit">Update Status</button>
+  </form>
+{% endblock content %}

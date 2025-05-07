@@ -1,0 +1,13 @@
+<div id="announcements-section" style="border: 1px solid #ccc; padding: 10px; margin-bottom: 20px; background-color: #f9f9f9;">
+  <h2>Announcements</h2>
+  <ul id="announcements-list" style="list-style-type: none; padding-left: 0;">
+    {% for announcement in announcements %}
+      <li style="margin-bottom: 10px;">
+        <strong>{{ announcement.title }}</strong> - {{ announcement.created_at|date:"M d, Y H:i" }}<br>
+        {{ announcement.content }}
+      </li>
+    {% empty %}
+      <li>No announcements available.</li>
+    {% endfor %}
+  </ul>
+</div>

@@ -1,0 +1,231 @@
+{% extends 'layout.html' %}
+
+{% block title %}Admission - Attariq Academy{% endblock title %}
+
+{% block content %}
+<div class="centralized-container d-flex gap-4" style="display: flex; flex-wrap: nowrap; justify-content: flex-start; align-items: flex-start; max-width: 1200px; margin: 0 auto; padding: 2rem;">
+
+  <!-- Admission Section -->
+  <section class="admission-section" style="flex: 0 0 60%; max-width: 60%; background-color: #f8f9fa; padding: 1.5rem; border-radius: 0.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+    <div class="admission-text">
+      <h2>Begin the Journey at Attariq Academy</h2>
+      <p>
+        At Attariq Academy, we nurture not just minds but hearts. Every child is a unique gift,
+        and their journey with us is one of faith, excellence, and purpose.
+      </p>
+
+      <div class="admission-path">
+        <h3>📘 Our School Sections</h3>
+        <p>Your child's academic foundation begins here. Choose a stage:</p>
+        <ul class="programs-list ps-3">
+          <li><strong>Nursery:</strong> Where curiosity begins to bloom</li>
+          <li><strong>Primary:</strong> Solid academic and moral development</li>
+          <li><strong>Junior School:</strong> Preparing for a bright and disciplined future</li>
+        </ul>
+      </div>
+
+      <div class="admission-path">
+        <h3>📖 Our Tahfeez Program</h3>
+        <p>Memorizing the Qur'an, guided by experienced scholars:</p>
+        <ul class="programs-list ps-3">
+          <li><strong>Weekdays:</strong> Intensive sessions during the week</li>
+          <li><strong>Weekend:</strong> Flexible learning for busy families</li>
+          <li><strong>Both:</strong> Comprehensive daily engagement</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dashboard Section -->
+
+  <aside class="admission-dashboard">
+    <h2>Admission Dashboard</h2>
+    <ul>
+        <li>Total Students: <span id="total-students">Loading...</span></li>
+        <li>Total Announcements: <span id="total-announcements">Loading...</span></li>
+        <li>Total Payments: <span id="total-payments">Loading...</span></li>
+    </ul>
+  </aside>
+
+  <!-- Related Links Section -->
+  <div class="related-links">
+    <h3>Navigate</h3>
+    <ul>
+        <li><a href="{% url 'home' %}">Home</a></li>
+        <li><a href="{% url 'about' %}">About Us</a></li>
+        <li><a href="{% url 'student_form' %}">Student Form</a></li>
+        <li><a href="{% url 'enrollment_form' %}">Enrollment Form</a></li>
+        <li><a href="{% url 'payment' %}">Payment</a></li>
+        <li><a href="{% url 'announcement' %}">Announcements</a></li>
+    </ul>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const searchInput = document.getElementById('studentSearch');
+  const studentList = document.getElementById('studentList');
+  const loadingIndicator = document.getElementById('loadingIndicator');
+  const errorMessage = document.getElementById('errorMessage');
+
+  function showLoading() {
+    loadingIndicator.style.display = 'block';
+  }
+
+  function hideLoading() {
+    loadingIndicator.style.display = 'none';
+  }
+
+  function showError(message) {
+    errorMessage.textContent = message;
+    errorMessage.style.display = 'block';
+  }
+
+  function hideError() {
+    errorMessage.style.display = 'none';
+  }
+
+  searchInput.addEventListener('input', function () {
+    hideError();
+    showLoading();
+
+    setTimeout(() => {
+      const filter = searchInput.value.toLowerCase();
+      const rows = studentList.getElementsByTagName('tr');
+      let anyVisible = false;
+
+      Array.from(rows).forEach(row => {
+        const nameCell = row.getElementsByTagName('td')[0];
+        if (nameCell) {
+          const nameText = nameCell.textContent || nameCell.innerText;
+          if (nameText.toLowerCase().indexOf(filter) > -1) {
+            row.style.display = '';
+            anyVisible = true;
+          } else {
+            row.style.display = 'none';
+          }
+        }
+      });
+
+      hideLoading();
+
+      if (!anyVisible) {
+        showError('No students match your search.');
+      }
+    }, 300); // simulate loading delay
+  });
+
+  fetch('/dashboard-data/')
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById('total-students').textContent = data.total_students;
+        document.getElementById('total-announcements').textContent = data.total_announcements;
+        document.getElementById('total-payments').textContent = data.total_payments;
+    })
+    .catch(error => console.error('Error fetching dashboard data:', error));
+
+  const dashboard = document.querySelector('.admission-dashboard');
+
+  function toggleDashboard() {
+      dashboard.classList.toggle('show');
+  }
+
+  // Show the dashboard every 15 seconds
+  setInterval(toggleDashboard, 15000);
+});
+</script>
+
+<style>
+#loadingIndicator {
+  display: none;
+  margin-bottom: 1rem;
+  font-weight: bold;
+  color: #007bff;
+}
+
+#errorMessage {
+  display: none;
+  margin-bottom: 1rem;
+  color: #dc3545;
+  font-weight: bold;
+}
+
+.admission-dashboard {
+    display: none; /* Initially hidden */
+    flex: 0 0 100%; /* Default for small screens */
+    max-width: 100%; /* Default for small screens */
+    background-color: #f9f9f9;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    padding: 1.5rem;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.admission-dashboard.show {
+    display: block; /* Show when the class is added */
+}
+
+@media (min-width: 768px) {
+    .admission-dashboard {
+        flex: 0 0 50%; /* Adjust for medium screens */
+        max-width: 50%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .admission-dashboard {
+        flex: 0 0 35%; /* Adjust for large screens */
+        max-width: 35%;
+    }
+}
+
+.admission-dashboard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.admission-dashboard h2 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #00008B;
+    text-align: center;
+}
+
+.admission-dashboard ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.admission-dashboard ul li {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #555;
+    display: flex;
+    align-items: center;
+}
+
+.admission-dashboard ul li span {
+    margin-left: auto;
+    font-weight: bold;
+    color: #00008B;
+}
+
+.admission-dashboard ul li::before {
+    content: '\2022';
+    color: #00008B;
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+</style>
+
+<div id="loadingIndicator">Loading...</div>
+<div id="errorMessage"></div>
+
+{% endblock content %}

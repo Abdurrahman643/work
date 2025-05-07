@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% load form_filters %}
+
+{% block title %}Enrollment Form - Attariq Academy{% endblock title %}
+
+{% block content %}
+<div class="enrollment-form-container animate-on-load" style="max-width: 700px; margin: 2rem auto; padding: 1rem;">
+  <h1 class="animate-on-load">Enrollment Form</h1>
+  <form method="post" novalidate>
+    {% csrf_token %}
+    {% for field in form %}
+      <div class="form-field">
+        {{ field.label_tag }}
+        {{ field|add_class:"aligned-input" }}
+        {% if field.help_text %}
+          <small class="form-text text-muted">{{ field.help_text }}</small>
+        {% endif %}
+        {% for error in field.errors %}
+          <div class="alert alert-danger">{{ error }}</div>
+        {% endfor %}
+      </div>
+    {% endfor %}
+    <button type="submit" class="btn btn-primary animate-on-load">Submit</button>
+  </form>
+</div>
+{% endblock content %}

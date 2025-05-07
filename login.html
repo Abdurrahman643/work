@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+{% load static %}
+
+{% block title %}Login{% endblock title %}
+
+{% block content %}
+<div class="container d-flex justify-content-center align-items-center flex-column" style="min-height: 60vh;">
+  <img src="{% static 'images/attariq.png' %}" alt="Attariq Logo" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; margin-bottom: 1rem; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+  <div class="card shadow p-4" style="max-width: 400px; width: 100%;">
+    <h2 class="text-center mb-4">Login</h2>
+    <form method="post" action="{% url 'login' %}">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit" class="btn btn-primary w-100">Login</button>
+    </form>
+    <div class="mt-3 text-center">
+      <a href="{% url 'student_form' %}" class="btn btn-link">Go to Student Registration</a>
+    </div>
+    {% if form.errors %}
+      <div class="alert alert-danger mt-3" role="alert">
+        Invalid username or password. Please try again.
+      </div>
+    {% endif %}
+  </div>
+</div>
+{% endblock content %}

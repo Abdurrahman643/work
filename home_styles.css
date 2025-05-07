@@ -1,0 +1,170 @@
+/* Enhanced styling with modern design elements */
+
+/* General body and container styling */
+body, .container, .square-div {
+  background-color: #f0e6d2; /* Cream background */
+  color: #16213e; /* Dark blue text */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  text-align: center; /* Center all text content */
+}
+
+/* Hero section styling */
+.hero-section {
+  background: linear-gradient(135deg, #16213e, #1a1a2e); /* Gradient background */
+  color: #f0e6d2; /* Cream text */
+  border-radius: 1rem;
+  padding: 2.5rem 1.5rem;
+  box-shadow: 0 8px 20px rgba(22, 33, 62, 0.7);
+  max-width: 900px;
+  margin: 2rem auto;
+  display: flex;
+  flex-direction: column; /* stack content vertically */
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+/* Center the hero-logo container */
+.hero-logo {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Center the image inside hero-logo and set size */
+.home-logo {
+  display: block;
+  width: 100%;
+  max-width: 300px; /* Smaller max width for smaller logo */
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 50%; /* Make image circular */
+  object-fit: cover; /* Ensure image covers the circle */
+}
+
+/* Center the hero-text container */
+.hero-text {
+  width: 100%;
+  text-align: center;
+}
+
+/* Features section styling */
+.features-section {
+  max-width: 900px;
+  margin: 2rem auto;
+  text-align: center;
+}
+
+/* Center the bullet points in features section */
+.features-section ul {
+  list-style-position: inside;
+  display: inline-block;
+  text-align: left;
+  padding-left: 0;
+  margin: 0 auto;
+}
+
+/* Hero section headings and paragraphs */
+.hero-section h1.display-4 {
+  color: #f0e6d2; /* Cream text */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero-section p.lead {
+  color: #f0e6d2; /* Cream text */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Buttons styling */
+.btn-primary,
+.btn-success,
+.btn-warning,
+.btn-purple {
+  background-color: #16213e !important; /* Dark blue */
+  border-color: #16213e !important;
+  color: #f0e6d2 !important; /* Cream */
+  font-weight: 700;
+  padding: 0.85rem 2.25rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 12px rgba(22, 33, 62, 0.4);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 1.1rem;
+  text-shadow: 1px 1px 2px rgba(22, 33, 62, 0.3);
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.btn-primary:hover,
+.btn-success:hover,
+.btn-warning:hover,
+.btn-purple:hover {
+  background-color: #1a1a2e !important; /* Slightly darker blue */
+  box-shadow: 0 6px 16px rgba(22, 33, 62, 0.6);
+  transform: translateY(-3px);
+}
+
+/* Container for buttons */
+.container .d-flex.flex-wrap.justify-content-center.gap-3 {
+  justify-content: center !important;
+  text-align: center;
+  flex-wrap: wrap !important;
+  gap: 1.5rem !important;
+}
+
+/* Images in hero section */
+.square-div img.hero-image {
+  border-radius: 1rem;
+  box-shadow: 0 6px 18px rgba(22, 33, 62, 0.3);
+  max-width: 100%;
+  height: auto;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.square-div img.hero-image:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 24px rgba(22, 33, 62, 0.5);
+}
+
+/* Footer styling */
+footer {
+  background-color: #16213e;
+  color: #f0e6d2;
+  text-align: center;
+  padding: 1rem 0;
+  font-size: 0.9rem;
+  box-shadow: 0 -4px 12px rgba(22, 33, 62, 0.3);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hero-section {
+    flex-direction: column;
+    padding: 2rem 1rem;
+  }
+
+  .hero-section h1.display-4 {
+    font-size: 2rem;
+  }
+
+  .hero-section p.lead {
+    font-size: 1rem;
+  }
+
+  .btn-primary,
+  .btn-success,
+  .btn-warning,
+  .btn-purple {
+    font-size: 1rem;
+    padding: 0.75rem 2rem;
+  }
+}
