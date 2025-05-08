@@ -2,9 +2,9 @@ services:
   - type: web
     name: tmsp-web
     env: python
-    rootDir: tmsp
+    rootDir: .
     buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn tmsp.wsgi --log-file -
+    startCommand: bash -c "PYTHONPATH=. gunicorn tmsp.wsgi --log-file -"
     envVars:
       - key: DJANGO_SECRET_KEY
         fromDatabase: true
