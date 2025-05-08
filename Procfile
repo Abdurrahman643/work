@@ -1,2 +1,1 @@
-web: python -m gunicorn tmsp.wsgi --log-file -
-
+web: gunicorn tmsp.wsgi --log-file -
