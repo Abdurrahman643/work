@@ -4,7 +4,7 @@ services:
     env: python
     rootDir: ""
     buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn tmsp.wsgi --log-file -
+    startCommand: gunicorn tmsp.tmsp.wsgi --log-file -
     envVars:
       - key: PYTHONPATH
         value: /opt/render/project/src/tmsp
