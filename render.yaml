@@ -4,8 +4,7 @@ services:
     env: python
     rootDir: ""
     buildCommand: pip install -r requirements.txt
-    # Option 1: Use Procfile, so no startCommand here
-    # startCommand: bash -c "cd tmsp && gunicorn tmsp.wsgi --log-file -"
+    startCommand: bash -c "cd tmsp && gunicorn tmsp.wsgi --log-file -"
     envVars:
       - key: PYTHONPATH
         value: /opt/render/project/src/tmsp
@@ -13,4 +12,3 @@ services:
         fromDatabase: true
       - key: PAYSTACK_SECRET_KEY
         fromDatabase: true
-
