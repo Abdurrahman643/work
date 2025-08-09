@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}Teacher Dashboard - Attariq Academy{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="mb-4">Teacher Dashboard</h1>
+    <p class="lead">Welcome, {{ user.first_name }}! From here you can manage your courses, students, and more.</p>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card shadow-sm">
+                <div class="card-header bg-dark text-white">
+                    <h2 class="h5 mb-0">Quick Links</h2>
+                </div>
+                <div class="list-group list-group-flush">
+                    <a href="{% url 'school:manage_subjects' %}" class="list-group-item list-group-item-action">Manage My Subjects</a>
+                    <a href="{% url 'school:view_my_courses' %}" class="list-group-item list-group-item-action">View My Courses & Grades</a>
+                    <a href="{% url 'school:select_attendance_course' %}" class="list-group-item list-group-item-action">Take Attendance</a>
+                    <a href="{% url 'school:post_announcement' %}" class="list-group-item list-group-item-action">Post an Announcement</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card shadow-sm">
+                <div class="card-header bg-dark text-white">
+                    <h2 class="h5 mb-0">Recent Announcements</h2>
+                </div>
+                <div class="list-group list-group-flush">
+                    {% for announcement in announcements %}
+                        <div class="list-group-item">
+                            <h5 class="mb-1">{{ announcement.title }}</h5>
+                            <small class="text-muted">{{ announcement.created_at|date:"F d, Y" }} by {{ announcement.created_by.username }}</small>
+                            <p class="mb-1">{{ announcement.content }}</p>
+                        </div>
+                    {% empty %}
+                        <div class="list-group-item">No announcements yet.</div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

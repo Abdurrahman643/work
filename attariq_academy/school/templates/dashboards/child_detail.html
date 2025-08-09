@@ -1,0 +1,144 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ child.user.first_name }}'s Dashboard - Attariq Academy{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="mb-4">{{ child.user.first_name }}'s Dashboard</h1>
+
+    <form method="get" class="row g-3 align-items-center mb-4">
+        <div class="col-auto">
+            {{ filter_form.course.label_tag }}
+        </div>
+        <div class="col-auto">
+            {{ filter_form.course }}
+        </div>
+        <div class="col-auto">
+            <button type="submit" class="btn btn-primary">Filter</button>
+        </div>
+    </form>
+
+    <div class="row">
+        <!-- Assignments Card -->
+        <div class="col-md-6 mb-4">
+            <div class="card shadow-sm">
+                <div class="card-header bg-dark text-white"><h2 class="h5 mb-0">Assignments</h2></div>
+                <div class="list-group list-group-flush">
+                    {% for assignment in assignments %}
+                        <a href="{{ assignment.file.url }}" class="list-group-item list-group-item-action">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1">{{ assignment.title }}</h5>
+                                <small>Due: {{ assignment.due_date|date:"F d" }}</small>
+                            </div>
+                            <p class="mb-1 text-muted">{{ assignment.course.name }}</p>
+                        </a>
+                    {% empty %}
+                        <div class="list-group-item">No assignments found.</div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <!-- Course Documents Card -->
+        <div class="col-md-6 mb-4">
+            <div class="card shadow-sm">
+                <div class="card-header bg-dark text-white"><h2 class="h5 mb-0">Course Documents</h2></div>
+                <div class="list-group list-group-flush">
+                    {% for document in documents %}
+                        <a href="{{ document.file.url }}" class="list-group-item list-group-item-action">
+                            {{ document.title }} <span class="text-muted">({{ document.course.name }})</span>
+                        </a>
+                    {% empty %}
+                        <div class="list-group-item">No documents found.</div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Child's Courses Card -->
+        <div class="col-md-6 mb-4">
+            <div class="card shadow-sm">
+                <div class="card-header bg-dark text-white">
+                    <h2 class="h5 mb-0">Enrolled Courses</h2>
+                </div>
+                {% if courses %}
+                    <ul class="list-group list-group-flush">
+                        {% for course in courses %}
+                            <li class="list-group-item">{{ course.name }} <span class="text-muted">({{ course.subject.name }})</span></li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <div class="card-body">
+                        <p class="card-text">Not enrolled in any courses.</p>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- Child's Grades Card -->
+        <div class="col-md-6 mb-4">
+            <div class="card shadow-sm">
+                <div class="card-header bg-dark text-white">
+                    <h2 class="h5 mb-0">Grades</h2>
+                </div>
+                {% if grades %}
+                    <ul class="list-group list-group-flush">
+                        {% for grade in grades %}
+                            <li class="list-group-item"><strong>{{ grade.course.name }}</strong> - {{ grade.title }}: {{ grade.grade }}</li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <div class="card-body">
+                        <p class="card-text">No grades have been recorded yet.</p>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Recent Attendance -->
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card shadow-sm">
+                <div class="card-header bg-dark text-white">
+                    <h2 class="h5 mb-0">Recent Attendance</h2>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-striped mb-0">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Course</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for record in attendance_records %}
+                                <tr>
+                                    <td>{{ record.date }}</td>
+                                    <td>{{ record.course.name }}</td>
+                                    <td>
+                                        {% if record.is_present %}
+                                            <span class="badge bg-success">Present</span>
+                                        {% else %}
+                                            <span class="badge bg-danger">Absent</span>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                            {% empty %}
+                                <tr>
+                                    <td colspan="3" class="text-center">No attendance records found.</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a href="{% url 'school:parent_dashboard' %}" class="btn btn-secondary mt-3">Back to Parent Dashboard</a>
+</div>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}Select Course for Attendance - Attariq Academy{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="mb-4">Select a Course</h1>
+    <p>Please select the course you would like to take attendance for today.</p>
+
+    <div class="card shadow-sm">
+        <div class="list-group list-group-flush">
+            {% for course in courses %}
+                <a href="{% url 'school:take_attendance' course_id=course.id %}" class="list-group-item list-group-item-action">
+                    {{ course.name }}
+                </a>
+            {% empty %}
+                <div class="list-group-item">
+                    <p class="mb-0">You are not currently assigned to any courses.</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <a href="{% url 'school:teacher_dashboard' %}" class="btn btn-secondary mt-4">Back to Dashboard</a>
+</div>
+{% endblock %}
