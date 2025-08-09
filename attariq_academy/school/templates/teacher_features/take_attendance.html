@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}Take Attendance - Attariq Academy{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="mb-4">Take Attendance</h1>
+    <h3>{{ course.name }}</h3>
+    <p class="lead">Date: {{ date|date:"F d, Y" }}</p>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ formset.management_form }}
+        <div class="card shadow-sm">
+            <table class="table table-striped mb-0">
+                <thead>
+                    <tr>
+                        <th>Student Name</th>
+                        <th class="text-center">Present</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for student, form in student_forms %}
+                        <tr>
+                            <td>{{ student.user.first_name }} {{ student.user.last_name }}</td>
+                            <td class="text-center">
+                                {{ form.id }}
+                                <div class="form-check d-inline-block">
+                                    {{ form.is_present }}
+                                </div>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <button type="submit" class="btn btn-primary mt-3">Save Attendance</button>
+    </form>
+    <a href="{% url 'school:select_attendance_course' %}" class="btn btn-secondary mt-3">Back to Course Selection</a>
+</div>
+{% endblock %}

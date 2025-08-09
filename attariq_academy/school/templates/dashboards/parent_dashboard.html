@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}Parent Dashboard - Attariq Academy{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="mb-4">Parent Dashboard</h1>
+    <p class="lead">Welcome, {{ user.first_name }}! From here you can view your children's progress.</p>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card shadow-sm">
+                <div class="card-header bg-dark text-white">
+                    <h2 class="h5 mb-0">My Children</h2>
+                </div>
+                <div class="list-group list-group-flush">
+                    {% for child in children %}
+                        <a href="{% url 'school:child_detail' student_id=child.user.id %}" class="list-group-item list-group-item-action">
+                            {{ child.user.first_name }} {{ child.user.last_name }}
+                        </a>
+                    {% empty %}
+                        <div class="list-group-item">
+                            <p class="mb-0">There are no students associated with your account.</p>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card shadow-sm">
+                <div class="card-header bg-dark text-white">
+                    <h2 class="h5 mb-0">Recent Announcements</h2>
+                </div>
+                <div class="list-group list-group-flush">
+                    {% for announcement in announcements %}
+                        <div class="list-group-item">
+                            <h5 class="mb-1">{{ announcement.title }}</h5>
+                            <small class="text-muted">{{ announcement.created_at|date:"F d, Y" }} by {{ announcement.created_by.username }}</small>
+                            <p class="mb-1">{{ announcement.content }}</p>
+                        </div>
+                    {% empty %}
+                        <div class="list-group-item">No announcements yet.</div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

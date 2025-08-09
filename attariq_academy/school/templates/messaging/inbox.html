@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}Inbox - Attariq Academy{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1>Inbox</h1>
+        <a href="{% url 'school:compose_message' %}" class="btn btn-primary">Compose New Message</a>
+    </div>
+    <div class="card shadow-sm">
+        <div class="list-group list-group-flush">
+            {% for message in messages %}
+                <a href="{% url 'school:view_message' message.id %}" class="list-group-item list-group-item-action {% if not message.read_at %}list-group-item-primary{% endif %}">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">{{ message.subject }}</h5>
+                        <small>{{ message.sent_at|date:"F d, Y" }}</small>
+                    </div>
+                    <p class="mb-1">From: {{ message.sender.username }}</p>
+                </a>
+            {% empty %}
+                <div class="list-group-item">Your inbox is empty.</div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

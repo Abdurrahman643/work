@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}My Courses - Attariq Academy{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="mb-4">My Courses</h1>
+
+    <div class="card shadow-sm">
+        <div class="card-header bg-dark text-white">
+            <h2 class="h5 mb-0">Courses I Teach</h2>
+        </div>
+        <div class="list-group list-group-flush">
+            {% for course in courses %}
+                <a href="{% url 'school:course_detail' course.id %}" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                    {{ course.name }} <span class="text-muted">({{ course.subject.name }})</span>
+                    <span class="badge bg-primary rounded-pill">{{ course.students.count }} Student(s)</span>
+                </a>
+            {% empty %}
+                <div class="list-group-item">
+                    <p class="mb-0">You are not currently assigned to any courses.</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <a href="{% url 'school:teacher_dashboard' %}" class="btn btn-secondary mt-4">Back to Dashboard</a>
+</div>
+{% endblock %}

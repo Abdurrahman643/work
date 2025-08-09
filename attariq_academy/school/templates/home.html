@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}Home - Attariq Academy{% endblock %}
+
+{% block content %}
+<div class="text-center">
+    <h1 class="display-4">Welcome to Attariq Academy</h1>
+    <p class="lead">Your central hub for school management.</p>
+    <hr class="my-4">
+    {% if not user.is_authenticated %}
+        <p>Please log in to access your dashboard.</p>
+        <a href="{% url 'school:login' %}" class="btn btn-primary btn-lg">Login</a>
+    {% else %}
+        <p>Welcome back, {{ user.username }}! You are being redirected to your dashboard...</p>
+        {# The view will handle the redirect, so a meta refresh is not needed and can be confusing. #}
+        {# We can just provide a direct link as a fallback. #}
+        <a href="{% url 'school:home' %}" class="btn btn-secondary">Go to my Dashboard</a>
+    {% endif %}
+</div>
+{% endblock %}
